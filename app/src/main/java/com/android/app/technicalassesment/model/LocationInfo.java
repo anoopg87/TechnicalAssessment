@@ -76,8 +76,8 @@ public class LocationInfo implements Parcelable {
         return location;
     }
 
-    public void setLocation(Location loaction) {
-        this.location = loaction;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
 

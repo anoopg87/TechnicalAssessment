@@ -10,6 +10,7 @@ import com.android.app.technicalassesment.modules.IWebServiceResponse;
 import com.android.app.technicalassesment.util.ConnectivityManger;
 import com.android.app.technicalassesment.view.activity.MapsActivity;
 
+@SuppressWarnings("ALL")
 public class LocationInfoViewModel {
 
 
@@ -18,7 +19,7 @@ public class LocationInfoViewModel {
 
      */
 
-    private IWebServiceResponse iWebServiceResponse;
+    private final IWebServiceResponse iWebServiceResponse;
 
     public LocationInfoViewModel(IWebServiceResponse iWebServiceResponse) {
         this.iWebServiceResponse = iWebServiceResponse;

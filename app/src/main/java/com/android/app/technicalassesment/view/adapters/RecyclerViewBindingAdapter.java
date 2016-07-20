@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("ALL")
 public class RecyclerViewBindingAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     /*
@@ -21,8 +22,8 @@ public class RecyclerViewBindingAdapter<T> extends RecyclerView.Adapter<Recycler
       @param dataSet store the adapter data
      */
     private final int holderLayout;
-    private int variableId;
-    List<T> dataSet=new ArrayList<>();
+    private final int variableId;
+    private List<T> dataSet=new ArrayList<>();
     private OnItemClickListener<T> onItemClickListener;
     public void setItemClickListener(OnItemClickListener<T> onItemClickListener){
         this.onItemClickListener = onItemClickListener;
@@ -75,7 +76,7 @@ public class RecyclerViewBindingAdapter<T> extends RecyclerView.Adapter<Recycler
         itemHolder.binding.setVariable(variableId,item);
     }
     private class ViewHolder extends RecyclerView.ViewHolder{
-        private ViewDataBinding binding;
+        private final ViewDataBinding binding;
         public ViewHolder(View itemView) {
             super(itemView);
             binding= DataBindingUtil.bind(itemView);

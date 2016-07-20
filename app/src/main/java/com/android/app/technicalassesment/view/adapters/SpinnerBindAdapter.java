@@ -7,6 +7,7 @@ import com.android.app.technicalassesment.model.LocationInfo;
 
 import java.util.List;
 
+@SuppressWarnings("ALL")
 public class SpinnerBindAdapter {
 
     /*

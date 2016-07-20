@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.android.app.technicalassesment.R;
@@ -18,8 +17,8 @@ public class ViewPagerFragment extends Fragment {
 
      */
 
-    private View mView;
-    public static String NAME="NAME",POSITION="POSITION";
+    private static final String NAME="NAME";
+    private static final String POSITION="POSITION";
     private String fragmentName="";
     private String fragmentPosition="";
     private FrameLayout mFrameLayout;
@@ -50,8 +49,8 @@ public class ViewPagerFragment extends Fragment {
     }
 
     private View populateView(){
-         mView=LayoutInflater.from(getActivity()).inflate(R.layout.viewpager_fragment_layout,container,false);
-        ((TextView)mView.findViewById(R.id.textView)).setText(fragmentName);
+        View mView = LayoutInflater.from(getActivity()).inflate(R.layout.viewpager_fragment_layout, container, false);
+        ((TextView) mView.findViewById(R.id.textView)).setText(fragmentName);
         mView.findViewById(R.id.mainPanel).setOnClickListener(v -> Toast.makeText(getActivity(),"Fragment :"+fragmentPosition,Toast.LENGTH_SHORT).show());
         mFrameLayout.addView(mView);
 

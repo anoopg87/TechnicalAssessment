@@ -18,6 +18,7 @@ import com.android.app.technicalassesment.view.UIAssessmentView;
 import com.android.app.technicalassesment.view.adapters.ViewPageAdapter;
 import com.viewpagerindicator.CirclePageIndicator;
 
+@SuppressWarnings("ALL")
 public class UiAssessmentFragmentViewModel  extends BaseObservable{
 
     /*
@@ -27,15 +28,14 @@ public class UiAssessmentFragmentViewModel  extends BaseObservable{
 
 
 
-    private RecyclerViewConfiguration itemListConfig=new RecyclerViewConfiguration();
-    private RecyclerViewBindingAdapter<String> adapter;
+    private final RecyclerViewConfiguration itemListConfig=new RecyclerViewConfiguration();
     private FragmentManager fragmentManager;
 
     private int selectedColor=R.color.white;
 private String selectedItem="";
-    private UIAssessmentView uiAssessmentView;
+    private final UIAssessmentView uiAssessmentView;
 
-    public void setSelectedItem(String selectedItem) {
+    private void setSelectedItem(String selectedItem) {
         this.selectedItem = selectedItem;
         notifyPropertyChanged(BR.selectedItem);
     }
@@ -62,10 +62,8 @@ private String selectedItem="";
         itemListConfig.setLayoutManager(new LinearLayoutManager(App.getApplicationInstance(),LinearLayoutManager.HORIZONTAL,false));
         String[] itemList= App.getApplicationInstance().getResources().getStringArray(R.array.item_list);
         List<String> dataSet = Arrays.asList(itemList);
-        adapter=new RecyclerViewBindingAdapter<>(R.layout.items_view_layout,BR.item,dataSet);
-        adapter.setItemClickListener((position, item) -> {
-            setSelectedItem(item);
-        });
+        RecyclerViewBindingAdapter<String> adapter = new RecyclerViewBindingAdapter<>(R.layout.items_view_layout, BR.item, dataSet);
+        adapter.setItemClickListener((position, item) -> setSelectedItem(item));
         itemListConfig.setAdapter(adapter);
 
     }

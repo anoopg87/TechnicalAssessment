@@ -41,8 +41,8 @@ public class LocationInfoFragment extends Fragment implements IWebServiceRespons
 
 
     private static final String TAG = "LocationFragment";
-    LocationInformationFragmentBinding binding;
-    List<LocationInfo> locationInfo=new ArrayList<>();
+    private LocationInformationFragmentBinding binding;
+    private List<LocationInfo> locationInfo=new ArrayList<>();
 
     public static LocationInfoFragment newInstance() {
         Bundle args = new Bundle();

@@ -23,10 +23,9 @@ public class ParentViewModel  {
 
      */
 
-    private RecyclerViewConfiguration menuListConfiguration=new RecyclerViewConfiguration();
-    private RecyclerViewBindingAdapter<Menu> menuBindingAdapter;
-    private Context context;
-    private ParentView parentView;
+    private final RecyclerViewConfiguration menuListConfiguration=new RecyclerViewConfiguration();
+    private final Context context;
+    private final ParentView parentView;
 
     public RecyclerViewConfiguration getMenuListConfiguration() {
         return menuListConfiguration;
@@ -39,7 +38,7 @@ public class ParentViewModel  {
         initialPageLoading();
     }
     private void initialPageLoading() {
-        Fragment fragment=null;
+        Fragment fragment;
         fragment=parentView.getSupportManager().findFragmentByTag(UIAssessmentFragment.class.getName());
         if(fragment==null) {
              fragment = UIAssessmentFragment.newInstance();
@@ -50,7 +49,7 @@ public class ParentViewModel  {
     private void setMenuListConfiguration(){
         menuListConfiguration.setLayoutManager(new LinearLayoutManager(context));
         menuListConfiguration.setItemAnimator(new DefaultItemAnimator());
-        menuBindingAdapter=new RecyclerViewBindingAdapter<>(R.layout.nav_menu_item, BR.menu, Menu.getMenuList());
+        RecyclerViewBindingAdapter<Menu> menuBindingAdapter = new RecyclerViewBindingAdapter<>(R.layout.nav_menu_item, BR.menu, Menu.getMenuList());
         menuBindingAdapter.setItemClickListener((position, item) -> {
 
            parentView.closeDrawerLayout();
@@ -61,7 +60,7 @@ public class ParentViewModel  {
         menuListConfiguration.setAdapter(menuBindingAdapter);
 
     }
-    public void loadFragment(Fragment fragment){
+    private void loadFragment(Fragment fragment){
         FragmentTransaction fragmentTransaction=parentView.getSupportManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragmentLoadingSpace,fragment);
         fragmentTransaction.addToBackStack(fragment.getClass().getName());

@@ -37,7 +37,7 @@ public class FromCentral extends BaseObservable implements Parcelable {
         this.train = train;
     }
 
-    protected FromCentral(Parcel in) {
+    FromCentral(Parcel in) {
         car = in.readString();
         train = in.readString();
     }

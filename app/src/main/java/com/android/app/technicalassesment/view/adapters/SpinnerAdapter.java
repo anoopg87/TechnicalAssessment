@@ -16,9 +16,10 @@ import com.android.app.technicalassesment.model.LocationInfo;
 import java.util.List;
 
 // Spinner custom adapter for listing location names
+@SuppressWarnings("ALL")
 public class SpinnerAdapter extends BaseAdapter {
-    List<LocationInfo> mDataSet;
-    View mView;
+    private final List<LocationInfo> mDataSet;
+    private View mView;
 
     // constructor with dataset
     public SpinnerAdapter(List<LocationInfo> dataSet) {
@@ -43,7 +44,7 @@ public class SpinnerAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         mView=convertView;
-        viewHolder vh=null;
+        viewHolder vh;
         if(null==mView){
             vh=new viewHolder();
             mView= LayoutInflater.from(parent.getContext()).inflate(R.layout.data_row,parent,false);

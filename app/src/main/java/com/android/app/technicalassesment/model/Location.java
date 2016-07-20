@@ -39,7 +39,7 @@ public class Location implements Parcelable{
         this.longitude = longitude;
     }
 
-    protected Location(Parcel in) {
+    Location(Parcel in) {
         latitude = in.readString();
         longitude = in.readString();
     }

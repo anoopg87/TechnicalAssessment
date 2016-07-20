@@ -18,6 +18,7 @@ import com.android.app.technicalassesment.view.UIAssessmentView;
 import com.android.app.technicalassesment.viewmodel.UiAssessmentFragmentViewModel;
 import com.viewpagerindicator.CirclePageIndicator;
 
+@SuppressWarnings("ALL")
 public class UIAssessmentFragment extends Fragment implements View.OnClickListener,UIAssessmentView {
 
     /*
@@ -36,10 +37,10 @@ public class UIAssessmentFragment extends Fragment implements View.OnClickListen
      */
 
 
-    UiAssessmentFragmentLayoutBinding binding;
-    ViewPager viewPager;
-    CirclePageIndicator indicator;
-    UiAssessmentFragmentViewModel viewModel;
+    private UiAssessmentFragmentLayoutBinding binding;
+    private ViewPager viewPager;
+    private CirclePageIndicator indicator;
+    private UiAssessmentFragmentViewModel viewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

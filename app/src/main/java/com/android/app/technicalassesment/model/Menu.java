@@ -20,17 +20,17 @@ public class Menu extends BaseObservable {
     public String getMenuName() {
         return menuName;
     }
-    public void setMenuName(String menuName) {
+    private void setMenuName(String menuName) {
         this.menuName = menuName;
     }
 
     public static List<Menu> getMenuList(){
         List<Menu> menuList=new ArrayList<>();
         String[] menuItems= App.getApplicationInstance().getResources().getStringArray(R.array.menu_items);
-         for (int i = 0; i <menuItems.length ; i++) {
-            Menu menu=new Menu();
-            menu.setMenuName(menuItems[i]);
-             menuList.add(menu);
+        for (String menuItem : menuItems) {
+            Menu menu = new Menu();
+            menu.setMenuName(menuItem);
+            menuList.add(menu);
         }
         return menuList;
     }

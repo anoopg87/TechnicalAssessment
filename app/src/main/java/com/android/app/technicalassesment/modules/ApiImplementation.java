@@ -4,7 +4,6 @@ import com.android.app.technicalassesment.R;
 import com.android.app.technicalassesment.model.LocationInfo;
 import com.android.app.technicalassesment.modules.ApiInterface;
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;

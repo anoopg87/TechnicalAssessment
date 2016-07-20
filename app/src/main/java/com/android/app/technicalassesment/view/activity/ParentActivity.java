@@ -18,6 +18,7 @@ import com.android.app.technicalassesment.view.ParentView;
 import com.android.app.technicalassesment.viewmodel.ParentViewModel;
 
 
+@SuppressWarnings("ALL")
 public  class ParentActivity extends AppCompatActivity implements ParentView {
 
     /*
@@ -30,23 +31,20 @@ public  class ParentActivity extends AppCompatActivity implements ParentView {
      */
 
     private DrawerLayout drawerLayout;
-    private Toolbar toolbar;
-    private  ActivityMainBinding binding;
-    private ParentViewModel parentViewModel;
-    private Context context;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         binding= DataBindingUtil.setContentView(this, R.layout.activity_main);
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initView();
-        context=this;
-        parentViewModel=new ParentViewModel(context,this);
+        Context context = this;
+        ParentViewModel parentViewModel = new ParentViewModel(context, this);
         binding.setHandler(parentViewModel);
 
     }
 
     private void initView(){
-        toolbar= (Toolbar) findViewById(R.id.top_bar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.top_bar);
         setSupportActionBar(toolbar);
          drawerLayout= (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(
