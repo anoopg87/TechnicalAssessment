@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="menu"
+            type="com.android.app.technicalassesment.model.Menu"/>
+    </data>
+
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="@dimen/activity_vertical_padding"
+        >
+
+        <TextView
+            android:layout_marginLeft="@dimen/activity_horizontal_padding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{menu.menuName}"
+
+            android:textSize="@dimen/primaryTextSize"
+            android:textColor="?attr/editTextColor"/>
+
+    </LinearLayout>
+</layout>

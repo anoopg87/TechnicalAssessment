@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <import type="java.util.List"></import>
+        <import type="com.android.app.technicalassesment.model.LocationInfo"/>
+       <import type="java.lang.String"/>
+    <variable
+    name="locationInfo"
+    type="LocationInfo"></variable>
+        <variable
+            name="locationList"
+            type="List&lt;LocationInfo>"/>
+        <variable
+            name="direction"
+            type="String"/>
+        <variable
+            name="handler"
+            type="com.android.app.technicalassesment.viewmodel.LocationInfoViewModel"/>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:layout_below="@+id/toolbar">
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner"
+                android:spinnerMode="dropdown"
+                app:setSpinner="@{locationList}"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="32dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/navigate"
+                android:id="@+id/button"
+                android:tag="@{locationInfo}"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:onClick="@{handler.navigateToMap}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/mode_of_transport"
+                android:id="@+id/textView"
+
+                android:layout_marginLeft="20dp"
+                android:layout_below="@+id/spinner"
+                android:layout_alignLeft="@+id/spinner"
+                android:layout_alignStart="@+id/spinner"
+                android:layout_marginTop="23dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@{direction}"
+                android:id="@+id/textView2"
+                android:layout_below="@+id/textView"
+                android:layout_alignLeft="@+id/textView"
+                android:layout_alignStart="@+id/textView"
+                android:layout_marginTop="30dp" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>
