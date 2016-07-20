@@ -1,6 +1,7 @@
 package com.android.app.technicalassesment.view.activity;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -66,6 +67,11 @@ public  class ParentActivity extends AppCompatActivity implements ParentView {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
     }
 
     @Override
