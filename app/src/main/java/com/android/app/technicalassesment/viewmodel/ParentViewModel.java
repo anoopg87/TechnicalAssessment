@@ -33,7 +33,7 @@ public class ParentViewModel extends BaseObservable {
     private final Context context;
     private final ParentView parentView;
 
-      public  ObservableField<String> TITLE= new ObservableField<>() ;
+      public  static ObservableField<String> TITLE= new ObservableField<>() ;
 
 
      public RecyclerViewConfiguration getMenuListConfiguration() {
