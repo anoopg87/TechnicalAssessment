@@ -1,5 +1,6 @@
 package com.android.app.technicalassesment.viewmodel;
 import android.content.Intent;
+import android.databinding.BaseObservable;
 import android.view.View;
 import android.widget.Toast;
 import com.android.app.technicalassesment.App;
@@ -11,8 +12,7 @@ import com.android.app.technicalassesment.util.ConnectivityManger;
 import com.android.app.technicalassesment.view.activity.MapsActivity;
 
 @SuppressWarnings("ALL")
-public class LocationInfoViewModel {
-
+public class LocationInfoViewModel extends BaseObservable {
 
     /*
     LocationInfoViewModel includes the functionality for calling the webservice and also for navigating to the map screen

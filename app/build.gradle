@@ -28,7 +28,7 @@ android {
     }
     productFlavors {
         DEBUG {
-            applicationId 'com.android.app.technicalassesment_debug'
+            applicationId 'com.android.app.technicalassesment'
             minSdkVersion 15
             targetSdkVersion 24
             versionCode 1

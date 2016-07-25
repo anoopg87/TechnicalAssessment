@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <declare-styleable name="SemiCircleProgress">
+        <attr name="progress" format="integer|reference"/>
+        <attr name="sc_radius" format="integer|reference"/>
+        <attr name="stroke_width" format="integer|reference"/>
+        <attr name="max" format="integer|reference"/>
+        <attr name="bg_color" format="color|reference"/>
+        <attr name="progress_color" format="color|reference"/>
+    </declare-styleable>
+
+
+</resources>

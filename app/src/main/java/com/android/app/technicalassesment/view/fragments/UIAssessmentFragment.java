@@ -10,16 +10,17 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
-import com.android.app.technicalassesment.App;
 import com.android.app.technicalassesment.R;
 import com.android.app.technicalassesment.databinding.UiAssessmentFragmentLayoutBinding;
 import com.android.app.technicalassesment.view.UIAssessmentView;
+import com.android.app.technicalassesment.viewmodel.ParentViewModel;
 import com.android.app.technicalassesment.viewmodel.UiAssessmentFragmentViewModel;
 import com.viewpagerindicator.CirclePageIndicator;
 
 @SuppressWarnings("ALL")
-public class UIAssessmentFragment extends Fragment implements View.OnClickListener,UIAssessmentView {
+public class UIAssessmentFragment extends Fragment implements UIAssessmentView {
 
     /*
 
@@ -60,39 +61,19 @@ public class UIAssessmentFragment extends Fragment implements View.OnClickListen
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
          binding=DataBindingUtil.inflate(inflater,R.layout.ui_assessment_fragment_layout,container,false);
          viewModel=new UiAssessmentFragmentViewModel(this);
-        getActivity().setTitle(getResources().getString(R.string.ui_assessment_test));
+        ParentViewModel.TITLE.set(getResources().getString(R.string.ui_assessment_test));
          binding.setHandler(viewModel);
             setViewPager();
-            setupButtonAction();
+
         return binding.getRoot();
     }
 
-    private void setupButtonAction(){
-        binding.redButton.setOnClickListener(this);
-        binding.blueButton.setOnClickListener(this);
-        binding.greenButton.setOnClickListener(this);  }
-
-    private void setViewPager(){
+     private void setViewPager(){
          viewPager= binding.pager;
         indicator = binding.indicator;
         viewModel.setupViewPager();
       }
 
-    @Override
-    public void onClick(View view) {
-
-        switch (view.getId()){
-            case R.id.redButton:
-                binding.buttonPanel.setBackgroundColor(App.getApplicationInstance().getResources().getColor(R.color.red));
-                break;
-            case R.id.blueButton:
-                binding.buttonPanel.setBackgroundColor(App.getApplicationInstance().getResources().getColor(R.color.blue));
-                break;
-            case R.id.greenButton:
-                binding.buttonPanel.setBackgroundColor(App.getApplicationInstance().getResources().getColor(R.color.green));
-                break;
-        }
-    }
 
     @Override
     public ViewPager getViewPager() {
@@ -107,6 +88,11 @@ public class UIAssessmentFragment extends Fragment implements View.OnClickListen
     @Override
     public FragmentManager getSupportManager() {
         return getChildFragmentManager();
+    }
+
+    @Override
+    public LinearLayout getButtonPanel() {
+        return binding.buttonPanel;
     }
 
 

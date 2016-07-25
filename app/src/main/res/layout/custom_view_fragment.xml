@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <data>
+         <variable
+            name="handler"
+            type="com.android.app.technicalassesment.viewmodel.CustomViewFragmentModel"/>
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical" >
+            <View
+                android:id="@+id/center"
+                android:layout_centerInParent="true"
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/red"></View>
+            <TextView
+                android:layout_below="@id/center"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/txtHeadText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:padding="5dp"
+                android:text="@string/progress"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:elevation="5dp"
+                android:background="@color/colorAccent"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_above="@id/center"
+                android:id="@+id/txtPercentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(handler.progress)}"
+                android:textSize="50sp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <com.android.app.technicalassesment.view.custom_view.SemiCircleProgressBar
+                android:layout_gravity="bottom"
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                custom:progress="@{handler.progress}"
+                custom:bg_color="@color/white"
+                custom:progress_color="@color/red" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true">
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/_25_percentage"
+                    android:tag="25"
+                    android:onClick="@{handler.progressButtonClick}"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:tag="50"
+                    android:text="@string/_50_percentage"
+                    android:onClick="@{handler.progressButtonClick}"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/_75_percentage"
+                    android:tag="75"
+                    android:onClick="@{handler.progressButtonClick}"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/_100_percentage"
+                    android:tag="100"
+                    android:onClick="@{handler.progressButtonClick}"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

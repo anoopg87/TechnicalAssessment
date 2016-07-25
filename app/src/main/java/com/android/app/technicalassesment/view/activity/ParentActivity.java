@@ -31,22 +31,21 @@ public  class ParentActivity extends AppCompatActivity implements ParentView {
      */
 
     private DrawerLayout drawerLayout;
-
+    private  ActivityMainBinding binding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         initView();
         Context context = this;
         ParentViewModel parentViewModel = new ParentViewModel(context, this);
         binding.setHandler(parentViewModel);
 
     }
-
     private void initView(){
-        Toolbar toolbar = (Toolbar) findViewById(R.id.top_bar);
+        Toolbar toolbar= binding.toolbar.appBar;
         setSupportActionBar(toolbar);
-         drawerLayout= (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout= binding.drawerLayout;
         ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);

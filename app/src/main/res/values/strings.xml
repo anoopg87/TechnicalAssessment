@@ -13,6 +13,7 @@
     <string-array name="menu_items">
         <item>UI Assessment</item>
         <item>Webservice Assessment</item>
+        <item>CustomView Assessment</item>
     </string-array>
 
     <string name="color_red">Red</string>
@@ -41,6 +42,14 @@
     <string name="please_check_internet_connection">Please check the internet connection</string>
     <string name="connection_error">No Internet</string>
     <string name="title_activity_maps">Map</string>
+    <string name="fragment">Fragment</string>
+    <string name="app_titile">Technical Assessment</string>
+    <string name="custom_view_assessment">CustomView Assessment Test</string>
+    <string name="progress">CUSTOM PROGRESSBAR</string>
+    <string name="_25_percentage">25%</string>
+    <string name="_50_percentage">50%</string>
+    <string name="_75_percentage">75%</string>
+    <string name="_100_percentage">100%</string>
 
 
 </resources>

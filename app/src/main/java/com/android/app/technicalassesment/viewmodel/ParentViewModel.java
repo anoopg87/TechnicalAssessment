@@ -1,20 +1,26 @@
 package com.android.app.technicalassesment.viewmodel;
 import android.content.Context;
 
+import android.databinding.BaseObservable;
+import android.databinding.ObservableField;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
+
+import com.android.app.technicalassesment.App;
 import com.android.app.technicalassesment.BR;
 import com.android.app.technicalassesment.model.Menu;
 import com.android.app.technicalassesment.R;
 import com.android.app.technicalassesment.view.ParentView;
 import com.android.app.technicalassesment.view.adapters.RecyclerViewBindingAdapter;
 import com.android.app.technicalassesment.view.adapters.RecyclerViewConfiguration;
+import com.android.app.technicalassesment.view.fragments.CustomViewAssessmentFragment;
 import com.android.app.technicalassesment.view.fragments.UIAssessmentFragment;
 import com.android.app.technicalassesment.view.fragments.LocationInfoFragment;
 
-public class ParentViewModel  {
+@SuppressWarnings("ALL")
+public class ParentViewModel extends BaseObservable {
 
     /*
     ParentViewModel list the menu and handle the menu operations
@@ -27,13 +33,18 @@ public class ParentViewModel  {
     private final Context context;
     private final ParentView parentView;
 
-    public RecyclerViewConfiguration getMenuListConfiguration() {
+      public  ObservableField<String> TITLE= new ObservableField<>() ;
+
+
+     public RecyclerViewConfiguration getMenuListConfiguration() {
         return menuListConfiguration;
     }
 
     public ParentViewModel(Context context, ParentView parentView) {
         this.context = context;
         this.parentView = parentView;
+        TITLE.set(App.getApplicationInstance().getResources().getString(R.string.app_titile));
+
         setMenuListConfiguration();
         initialPageLoading();
     }
@@ -53,7 +64,7 @@ public class ParentViewModel  {
         menuBindingAdapter.setItemClickListener((position, item) -> {
 
            parentView.closeDrawerLayout();
-           Fragment fragment= position==0?UIAssessmentFragment.newInstance(): LocationInfoFragment.newInstance();
+           Fragment fragment= position==0?UIAssessmentFragment.newInstance():position==1? LocationInfoFragment.newInstance(): CustomViewAssessmentFragment.newInstance();
             loadFragment(fragment);
 
         });

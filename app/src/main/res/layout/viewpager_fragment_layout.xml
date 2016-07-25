@@ -1,25 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+          <variable
+            name="fragmentName"
+            type="java.lang.String"></variable>
+        <variable
+            name="fragmentPosition"
+            type="java.lang.String"></variable>
+
+        <variable
+            name="handler"
+            type="com.android.app.technicalassesment.viewmodel.ViewPagerFragmentViewModel"/>
+    </data>
+
 
     <RelativeLayout
-        android:id="@+id/mainPanel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <RelativeLayout
+            android:id="@+id/mainPanel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:onClick="@{handler.onFragmentClick}"
+            android:tag="@{fragmentPosition}"
+            >
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:clickable="false"
-            android:textColor="@color/black"
-            android:text="Large Text"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:clickable="false"
+                android:textColor="@color/black"
+                android:text="@{fragmentName}"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </RelativeLayout>
     </RelativeLayout>
-</RelativeLayout>
+</layout>

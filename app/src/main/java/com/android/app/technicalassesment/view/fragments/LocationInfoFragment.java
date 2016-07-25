@@ -17,6 +17,8 @@ import com.android.app.technicalassesment.model.FromCentral;
 import com.android.app.technicalassesment.model.LocationInfo;
 import com.android.app.technicalassesment.modules.IWebServiceResponse;
 import com.android.app.technicalassesment.viewmodel.LocationInfoViewModel;
+import com.android.app.technicalassesment.viewmodel.ParentViewModel;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +56,7 @@ public class LocationInfoFragment extends Fragment implements IWebServiceRespons
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        getActivity().setTitle(getResources().getString(R.string.web_service_assessment_test));
+        ParentViewModel.TITLE.set(getResources().getString(R.string.web_service_assessment_test));
         binding= DataBindingUtil.inflate(inflater,R.layout.location_information_fragment,container,false);
         binding.setLocationList(locationInfo);
         LocationInfoViewModel locationInfoViewModel=new LocationInfoViewModel(this);
