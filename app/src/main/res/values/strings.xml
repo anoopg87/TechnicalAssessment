@@ -14,6 +14,7 @@
         <item>UI Assessment</item>
         <item>Webservice Assessment</item>
         <item>CustomView Assessment</item>
+        <item>ComplexView Assessment</item>
     </string-array>
 
     <string name="color_red">Red</string>
@@ -50,6 +51,9 @@
     <string name="_50_percentage">50%</string>
     <string name="_75_percentage">75%</string>
     <string name="_100_percentage">100%</string>
+
+
+    <string name="complexview_assessment">Complex View Assessment</string>
 
 
 </resources>

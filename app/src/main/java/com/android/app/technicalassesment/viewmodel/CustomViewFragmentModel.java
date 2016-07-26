@@ -11,9 +11,7 @@ public class CustomViewFragmentModel {
     public CustomViewFragmentModel() {
     }
 
-    public void progressButtonClick(View v){
-        String value= (String) v.getTag();
-        progress.set(Integer.valueOf(value));
-
+    public void progressButtonClick(Integer prgs){
+            progress.set(prgs);
     }
 }

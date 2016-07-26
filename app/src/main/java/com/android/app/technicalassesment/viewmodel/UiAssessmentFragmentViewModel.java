@@ -3,10 +3,10 @@ package com.android.app.technicalassesment.viewmodel;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
-import android.view.View;
 
 import com.android.app.technicalassesment.App;
 import com.android.app.technicalassesment.R;
@@ -27,12 +27,25 @@ public class UiAssessmentFragmentViewModel  extends BaseObservable{
 
      */
 
+
+
     private final RecyclerViewConfiguration itemListConfig=new RecyclerViewConfiguration();
     private FragmentManager fragmentManager;
     private String selectedItem="";
+    private ColorDrawable selectedColor;
     private final UIAssessmentView uiAssessmentView;
 
-   private void setSelectedItem(String selectedItem) {
+    public void setSelectedColor(ColorDrawable selectedColor) {
+        this.selectedColor = selectedColor;
+        notifyPropertyChanged(BR.selectedColor);
+    }
+
+    @Bindable
+    public ColorDrawable getSelectedColor() {
+        return selectedColor;
+    }
+
+    private void setSelectedItem(String selectedItem) {
         this.selectedItem = selectedItem;
         notifyPropertyChanged(BR.selectedItem);
     }
@@ -48,6 +61,7 @@ public class UiAssessmentFragmentViewModel  extends BaseObservable{
 
     public UiAssessmentFragmentViewModel(UIAssessmentView uiAssessmentView) {
         this.uiAssessmentView = uiAssessmentView;
+        setSelectedColor(convertColorToDrawable(R.color.white));
         setupItemListView();
     }
 
@@ -73,21 +87,15 @@ public class UiAssessmentFragmentViewModel  extends BaseObservable{
         indicator.setRadius(5 * density);
     }
 
-    public void colorSelector(View v){
-
-        // Issue in color conversion in binding
-
-        switch (v.getId()){
-            case R.id.redButton:  uiAssessmentView.getButtonPanel().setBackgroundColor(App.getApplicationInstance().getResources().getColor(R.color.red));
-                break;
-            case R.id.blueButton:  uiAssessmentView.getButtonPanel().setBackgroundColor(App.getApplicationInstance().getResources().getColor(R.color.blue));
-                break;
-            case R.id.greenButton: uiAssessmentView.getButtonPanel().setBackgroundColor(App.getApplicationInstance().getResources().getColor(R.color.green));
-                break;
-
-        }
-
+    public void colorSelector(String color){
+       int selClr= color.equals("red")?R.color.red:color.equals("blue")?R.color.blue:R.color.green;
+        setSelectedColor(convertColorToDrawable(selClr));
     }
+
+    private ColorDrawable convertColorToDrawable(int selClr) {
+        return new ColorDrawable(App.getApplicationInstance().getResources().getColor(selClr));
+    }
+
 
 }
 

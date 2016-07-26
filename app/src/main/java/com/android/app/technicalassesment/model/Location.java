@@ -3,6 +3,7 @@ package com.android.app.technicalassesment.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+@SuppressWarnings("ALL")
 public class Location implements Parcelable{
 
 

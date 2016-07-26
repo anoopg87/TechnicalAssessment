@@ -74,6 +74,7 @@ public class RecyclerViewBindingAdapter<T> extends RecyclerView.Adapter<Recycler
         });
 
         itemHolder.binding.setVariable(variableId,item);
+
     }
     private class ViewHolder extends RecyclerView.ViewHolder{
         private final ViewDataBinding binding;
@@ -85,4 +86,5 @@ public class RecyclerViewBindingAdapter<T> extends RecyclerView.Adapter<Recycler
     public interface OnItemClickListener<T>{
         void onItemClick(int position, T item);
     }
+
 }

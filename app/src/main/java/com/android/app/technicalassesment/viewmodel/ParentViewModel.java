@@ -15,12 +15,15 @@ import com.android.app.technicalassesment.R;
 import com.android.app.technicalassesment.view.ParentView;
 import com.android.app.technicalassesment.view.adapters.RecyclerViewBindingAdapter;
 import com.android.app.technicalassesment.view.adapters.RecyclerViewConfiguration;
+import com.android.app.technicalassesment.view.fragments.ComplexRecyclerViewFragment;
 import com.android.app.technicalassesment.view.fragments.CustomViewAssessmentFragment;
 import com.android.app.technicalassesment.view.fragments.UIAssessmentFragment;
 import com.android.app.technicalassesment.view.fragments.LocationInfoFragment;
 
 @SuppressWarnings("ALL")
 public class ParentViewModel extends BaseObservable {
+
+
 
     /*
     ParentViewModel list the menu and handle the menu operations
@@ -32,9 +35,7 @@ public class ParentViewModel extends BaseObservable {
     private final RecyclerViewConfiguration menuListConfiguration=new RecyclerViewConfiguration();
     private final Context context;
     private final ParentView parentView;
-
-      public  static ObservableField<String> TITLE= new ObservableField<>() ;
-
+    public  static ObservableField<String> TITLE= new ObservableField<>() ;
 
      public RecyclerViewConfiguration getMenuListConfiguration() {
         return menuListConfiguration;
@@ -64,7 +65,7 @@ public class ParentViewModel extends BaseObservable {
         menuBindingAdapter.setItemClickListener((position, item) -> {
 
            parentView.closeDrawerLayout();
-           Fragment fragment= position==0?UIAssessmentFragment.newInstance():position==1? LocationInfoFragment.newInstance(): CustomViewAssessmentFragment.newInstance();
+           Fragment fragment= position==0?UIAssessmentFragment.newInstance():position==1? LocationInfoFragment.newInstance():position==2? CustomViewAssessmentFragment.newInstance(): ComplexRecyclerViewFragment.newInstance();
             loadFragment(fragment);
 
         });

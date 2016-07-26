@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="user"
+            type="com.android.app.technicalassesment.model.User"/>
+
+
+    </data>
+
+    <RelativeLayout
+
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/userImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:placeHolder="@{@drawable/ic_no}"
+            app:imageUrl="@{user.userImage}"
+            app:error="@{@drawable/ic_no}"
+            />
+        <TextView
+            android:id="@+id/userName"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/userImage"
+            android:text="@{user.userName}"
+            android:textColor="@color/primary_text"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/userStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/userImage"
+            android:layout_below="@+id/userName"
+            android:maxLines="1"
+            android:textColor="@color/secondary_text"
+            android:textSize="12sp"
+            android:layout_marginBottom="5dp"
+            android:text="@{user.userStatus}"/>
+
+        <LinearLayout
+            android:layout_toRightOf="@+id/userImage"
+            android:layout_below="@+id/userStatus"
+            android:layout_alignBottom="@+id/userImage"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgInitAudioCall"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:visibility="@{user.audioCallEnabled}"
+                android:src="@drawable/ic_audio_call"
+                android:onClick="@{()->user.onAudioCallClick(user)}"
+                android:layout_marginRight="20dp"/>
+            <ImageView
+                android:id="@+id/imgInitVideoCall"
+                android:layout_width="48dp"
+                android:visibility="@{user.videoCallEnabled}"
+                android:onClick="@{()->user.onVideoCallClick(user)}"
+                android:src="@drawable/ic_video_call"
+                android:layout_height="48dp" />
+            <ImageView
+                android:layout_marginLeft="20dp"
+                android:id="@+id/imgInitTextMessage"
+                android:layout_width="48dp"
+                android:onClick="@{()->user.onTextMessageCallClick(user)}"
+                android:src="@drawable/ic_text_message"
+                android:layout_height="48dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@{@color/divider}"/>
+
+
+    </RelativeLayout>
+
+</layout>

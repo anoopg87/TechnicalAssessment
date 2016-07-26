@@ -5,6 +5,7 @@ import android.databinding.BaseObservable;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+@SuppressWarnings("ALL")
 public class FromCentral extends BaseObservable implements Parcelable {
 
     /* Mode of transport
