@@ -4,10 +4,8 @@ package com.android.app.technicalassesment.viewmodel;
 import android.content.Context;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
-
 import com.android.app.technicalassesment.BR;
 import com.android.app.technicalassesment.R;
-import com.android.app.technicalassesment.model.User;
 import com.android.app.technicalassesment.util.DemoUser;
 import com.android.app.technicalassesment.view.adapters.RecyclerViewBindingAdapter;
 import com.android.app.technicalassesment.view.adapters.RecyclerViewConfiguration;
@@ -26,7 +24,7 @@ public class ComplexRecyclerViewModel {
     private void setUserListConfiguration(){
         userListConfiguration.setItemAnimator(new DefaultItemAnimator());
         userListConfiguration.setLayoutManager(new LinearLayoutManager(context));
-        RecyclerViewBindingAdapter<User> adapter = new RecyclerViewBindingAdapter<>(R.layout.contact_item_layout, BR.user, DemoUser.getUerList());
+        RecyclerViewBindingAdapter<UserViewModel> adapter = new RecyclerViewBindingAdapter<>(R.layout.contact_item_layout, BR.handler, UserViewModel.getUserModelList(DemoUser.getUerList()));
         userListConfiguration.setAdapter(adapter);
 
 

@@ -2,11 +2,9 @@ package com.android.app.technicalassesment.model;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.util.Log;
-import android.widget.Toast;
 
-import com.android.app.technicalassesment.App;
 import com.android.app.technicalassesment.BR;
+
 @SuppressWarnings("ALL")
 public class User extends BaseObservable{
 
@@ -69,26 +67,5 @@ public class User extends BaseObservable{
         isAudioCallEnabled = audioCallEnabled;
         notifyPropertyChanged(BR.audioCallEnabled);
     }
-
-
-    public void onAudioCallClick(User user){
-
-        Log.d("User",user.getUserName());
-
-        Toast.makeText(App.getApplicationInstance(), "You initiate audio call to "+user.getUserName(), Toast.LENGTH_SHORT).show();
-
-
-    }
-    public void onVideoCallClick(User user){
-        Log.d("User",user.getUserName());
-        Toast.makeText(App.getApplicationInstance(), "You initiate video call to "+user.getUserName(), Toast.LENGTH_SHORT).show();
-
-    }
-    public void onTextMessageCallClick(User user){
-        Log.d("User",user.getUserName());
-        Toast.makeText(App.getApplicationInstance(), "You initiate text message to "+user.getUserName(), Toast.LENGTH_SHORT).show();
-
-    }
-
 
 }

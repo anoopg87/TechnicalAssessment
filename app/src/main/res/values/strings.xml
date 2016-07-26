@@ -54,6 +54,9 @@
 
 
     <string name="complexview_assessment">Complex View Assessment</string>
+    <string name="initiate_audio_call">You have initiated an audio call to</string>
+    <string name="initiate_video_call">You have initiated a video call to</string>
+    <string name="initiate_text_message">You have initiated a text message to</string>
 
 
 </resources>

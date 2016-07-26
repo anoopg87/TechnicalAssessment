@@ -4,9 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
 
-        <variable
-            name="user"
-            type="com.android.app.technicalassesment.model.User"/>
+          <variable
+            name="handler"
+            type="com.android.app.technicalassesment.viewmodel.UserViewModel"/>
 
 
     </data>
@@ -24,7 +24,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             app:placeHolder="@{@drawable/ic_no}"
-            app:imageUrl="@{user.userImage}"
+            app:imageUrl="@{handler.user.userImage}"
             app:error="@{@drawable/ic_no}"
             />
         <TextView
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/userImage"
-            android:text="@{user.userName}"
+            android:text="@{handler.user.userName}"
             android:textColor="@color/primary_text"
             android:textSize="20sp"/>
         <TextView
@@ -48,7 +48,7 @@
             android:textColor="@color/secondary_text"
             android:textSize="12sp"
             android:layout_marginBottom="5dp"
-            android:text="@{user.userStatus}"/>
+            android:text="@{handler.user.userStatus}"/>
 
         <LinearLayout
             android:layout_toRightOf="@+id/userImage"
@@ -63,22 +63,22 @@
                 android:id="@+id/imgInitAudioCall"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:visibility="@{user.audioCallEnabled}"
+                android:visibility="@{handler.user.audioCallEnabled}"
                 android:src="@drawable/ic_audio_call"
-                android:onClick="@{()->user.onAudioCallClick(user)}"
+                android:onClick="@{()->handler.onAudioCallClick(handler.user)}"
                 android:layout_marginRight="20dp"/>
             <ImageView
                 android:id="@+id/imgInitVideoCall"
                 android:layout_width="48dp"
-                android:visibility="@{user.videoCallEnabled}"
-                android:onClick="@{()->user.onVideoCallClick(user)}"
+                android:visibility="@{handler.user.videoCallEnabled}"
+                android:onClick="@{()->handler.onVideoCallClick(handler.user)}"
                 android:src="@drawable/ic_video_call"
                 android:layout_height="48dp" />
             <ImageView
                 android:layout_marginLeft="20dp"
                 android:id="@+id/imgInitTextMessage"
                 android:layout_width="48dp"
-                android:onClick="@{()->user.onTextMessageCallClick(user)}"
+                android:onClick="@{()->handler.onTextMessageCallClick(handler.user)}"
                 android:src="@drawable/ic_text_message"
                 android:layout_height="48dp" />
 
