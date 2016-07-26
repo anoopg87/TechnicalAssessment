@@ -12,7 +12,6 @@ public class DemoUser {
     public static List<User> getUerList(){
 
         List<User> users=new ArrayList<>();
-
         User user=new User("Jordan Cric","Busy in work","http://forums.rpgmakerweb.com/uploads/profile/photo-thumb-25768.jpg",true,true);
         users.add(user);
         user=new User("Steffy Rine","Busy in cooking","http://statecrime.org/data/2014/12/profile-picture-100x100.jpeg",true,true);
